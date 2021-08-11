@@ -1,0 +1,9 @@
+C:\Users\DAVID\source\repos\Taller_Poo\Modulo\bin\Debug\netcoreapp3.1\Modulo.deps.json
+C:\Users\DAVID\source\repos\Taller_Poo\Modulo\bin\Debug\netcoreapp3.1\Modulo.dll
+C:\Users\DAVID\source\repos\Taller_Poo\Modulo\bin\Debug\netcoreapp3.1\Modulo.pdb
+C:\Users\DAVID\source\repos\Taller_Poo\Modulo\obj\Debug\netcoreapp3.1\Modulo.csprojAssemblyReference.cache
+C:\Users\DAVID\source\repos\Taller_Poo\Modulo\obj\Debug\netcoreapp3.1\Modulo.AssemblyInfoInputs.cache
+C:\Users\DAVID\source\repos\Taller_Poo\Modulo\obj\Debug\netcoreapp3.1\Modulo.AssemblyInfo.cs
+C:\Users\DAVID\source\repos\Taller_Poo\Modulo\obj\Debug\netcoreapp3.1\Modulo.csproj.CoreCompileInputs.cache
+C:\Users\DAVID\source\repos\Taller_Poo\Modulo\obj\Debug\netcoreapp3.1\Modulo.dll
+C:\Users\DAVID\source\repos\Taller_Poo\Modulo\obj\Debug\netcoreapp3.1\Modulo.pdb

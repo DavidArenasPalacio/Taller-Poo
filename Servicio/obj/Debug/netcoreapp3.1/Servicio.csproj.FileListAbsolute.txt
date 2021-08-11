@@ -1,0 +1,12 @@
+C:\Users\DAVID\source\repos\Taller_Poo\Servicio\bin\Debug\netcoreapp3.1\Servicio.deps.json
+C:\Users\DAVID\source\repos\Taller_Poo\Servicio\bin\Debug\netcoreapp3.1\Servicio.dll
+C:\Users\DAVID\source\repos\Taller_Poo\Servicio\bin\Debug\netcoreapp3.1\Servicio.pdb
+C:\Users\DAVID\source\repos\Taller_Poo\Servicio\bin\Debug\netcoreapp3.1\Modulo.dll
+C:\Users\DAVID\source\repos\Taller_Poo\Servicio\bin\Debug\netcoreapp3.1\Modulo.pdb
+C:\Users\DAVID\source\repos\Taller_Poo\Servicio\obj\Debug\netcoreapp3.1\Servicio.csprojAssemblyReference.cache
+C:\Users\DAVID\source\repos\Taller_Poo\Servicio\obj\Debug\netcoreapp3.1\Servicio.AssemblyInfoInputs.cache
+C:\Users\DAVID\source\repos\Taller_Poo\Servicio\obj\Debug\netcoreapp3.1\Servicio.AssemblyInfo.cs
+C:\Users\DAVID\source\repos\Taller_Poo\Servicio\obj\Debug\netcoreapp3.1\Servicio.csproj.CoreCompileInputs.cache
+C:\Users\DAVID\source\repos\Taller_Poo\Servicio\obj\Debug\netcoreapp3.1\Servicio.csproj.CopyComplete
+C:\Users\DAVID\source\repos\Taller_Poo\Servicio\obj\Debug\netcoreapp3.1\Servicio.dll
+C:\Users\DAVID\source\repos\Taller_Poo\Servicio\obj\Debug\netcoreapp3.1\Servicio.pdb
