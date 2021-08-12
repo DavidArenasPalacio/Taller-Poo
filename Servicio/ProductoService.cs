@@ -7,18 +7,17 @@ namespace Servicio
 {
     public class ProductoService
     {
-        public List<Producto> Productos { get; set; }
 
-        public Producto producto = new Producto();
+         Producto producto = new Producto();
 
         public void Crear()
         {
-            Productos = new List<Producto>();
+            producto.Productos = new List<Producto>();
 
             Console.WriteLine("aqui se crea un producto");
             Console.WriteLine("Ingrese el codigo del producto:  ");
             producto.Codigo = Console.ReadLine();
-         
+
 
             if (Validar(producto.Codigo) != -1)
             {
@@ -32,13 +31,13 @@ namespace Servicio
                 producto.Precio = double.Parse(Console.ReadLine());
                 Console.WriteLine("Ingrese la cantidad del producto:  ");
                 producto.Cantidad = int.Parse(Console.ReadLine());
-                Productos.Add(producto);
+                producto.Productos.Add(producto);
             }
 
         }
         public int Validar(string codigo)
         {
-            int consulta = Productos.FindIndex(c => c.Codigo == codigo);
+            int consulta = producto.Productos.FindIndex(c => c.Codigo == codigo);
             return consulta;
         }
 
@@ -49,20 +48,20 @@ namespace Servicio
             if (index != -1)
             {
                 Console.WriteLine("aqui se crea un producto");
-                Console.WriteLine($"Modificar el codigo {Productos[index].Codigo} del producto:  ");
+                Console.WriteLine($"Modificar el codigo { producto.Productos[index].Codigo} del producto:  ");
                 string Codigo = Console.ReadLine();
-                Console.WriteLine($"Modificar el nombre {Productos[index].Nombre} del producto:  ");
+                Console.WriteLine($"Modificar el nombre { producto.Productos[index].Nombre} del producto:  ");
                 string Nombre = Console.ReadLine();
-                Console.WriteLine($"Modificar el precio {Productos[index].Precio} del producto:  ");
+                Console.WriteLine($"Modificar el precio { producto.Productos[index].Precio} del producto:  ");
                 double Precio = double.Parse(Console.ReadLine());
-                Console.WriteLine($"Modificar la cantidad {Productos[index].Cantidad} del producto:  ");
+                Console.WriteLine($"Modificar la cantidad { producto.Productos[index].Cantidad} del producto:  ");
                 int Cantidad = int.Parse(Console.ReadLine());
 
-                Productos[index].Codigo = Codigo;
-                Productos[index].Nombre = Nombre;
-                Productos[index].Cantidad = Cantidad;
-                Productos[index].Precio = Precio;
-        
+                producto.Productos[index].Codigo = Codigo;
+                producto.Productos[index].Nombre = Nombre;
+                producto.Productos[index].Cantidad = Cantidad;
+                producto.Productos[index].Precio = Precio;
+
             }
             else
             {
@@ -73,7 +72,7 @@ namespace Servicio
 
         public List<Producto> Buscar(string codigo)
         {
-          var consulta = Productos.Where(producto => producto.Codigo == codigo).ToList();
+            var consulta = producto.Productos.Where(producto => producto.Codigo == codigo).ToList();
             return consulta;
         }
     }

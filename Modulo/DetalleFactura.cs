@@ -6,9 +6,9 @@ namespace Modulo
 {
    public class DetalleFactura
     {
-        public EncabezadoFactura idFactura { get; }
-        public Producto idProduct { get; }
-        public int cantidad { get; set; }
+        public EncabezadoFactura IdFactura { get; }
+        public Producto IdProducto { get; }
+        public int Cantidad { get; set; }
 
     }
 }

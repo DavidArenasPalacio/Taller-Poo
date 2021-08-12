@@ -12,6 +12,7 @@ namespace Modulo
         public double Precio { get; set; }
 
         public int Cantidad { get; set; }
+        public List<Producto> Productos { get; set; }
 
 
         public Producto()
