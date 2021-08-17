@@ -2,89 +2,171 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Modulo;
+using Modelo;
 namespace Servicio
 {
     public class FacturaService
     {
 
-         EncabezadoFactura encabezadofactura = new EncabezadoFactura();
-         DetalleFactura detalleFactura = new DetalleFactura();
-         List<int> cliente = new List<int>();
-         List<DetalleFactura> detalleFacturas = new List<DetalleFactura>();
+        
+        public List<EncabezadoFactura> encabezadoFacturas = new List<EncabezadoFactura>();
 
-        public DateTime Fecha;
-        public void Venta()
+       
+        public List<DetalleFactura> detalleFacturas = new List<DetalleFactura>();
+
+        public void Venta(ClienteService cliente, ProductoService producto)
         {
-            Console.Write("Ingrese el documento: ");
-            int documento = int.Parse(Console.ReadLine());
-
-          
-            if(BuscarCliente(documento).Count != 0)
+            EncabezadoFactura encabezadoFactura = new EncabezadoFactura();
+            
+            Console.WriteLine("Ingrese un documento: ");
+            long documento = long.Parse(Console.ReadLine());
+            int indexCliente = ValidarCliente(cliente, documento);
+            if (indexCliente != -1)
             {
-                Console.WriteLine("El cliente no existe");
+                encabezadoFactura.Documento = documento;
+
+                Console.Write("Cantidad de productos: ");
+                int cantidad = int.Parse(Console.ReadLine());
+                double valor = 0;
+                int n = 0;
+                while (n < cantidad)
+                {
+                    DetalleFactura detalleFactura = new DetalleFactura();
+                    detalleFactura.IdFactura = encabezadoFactura.NumeroFactura;
+                    Console.Write("Ingrese el código del producto: ");
+                    string codigo = Console.ReadLine();
+
+                    //  int indexProducto = ValidarProducto(producto, codigo);
+
+                    do
+                    {
+                        if (ValidarProducto(producto, codigo) < 0)
+                        {
+                            Console.Write("Ingrese otro código: ");
+                            codigo = Console.ReadLine();
+                        }
+
+                    } while (ValidarProducto(producto, codigo) < 0);
+
+                    detalleFactura.IdProducto = codigo;
+
+                    Console.Write("Ingrese la cantidad: ");
+                    int cant = int.Parse(Console.ReadLine());
+
+                    do
+                    {
+
+                        if (cant > 0)
+                        {
+                            if (cant > producto.Productos[ValidarProducto(producto, codigo)].Cantidad)
+                            {
+                                Console.Write("Ingrese la cantidad que sea menor o igual que la cantidad del producto: ");
+                                cant = int.Parse(Console.ReadLine());
+                            }
+                        }
+                        else
+                        {
+                            Console.Write("Ingrese la cantidad que sea mayor que cero: ");
+                            cant = int.Parse(Console.ReadLine());
+                        }
+                    } while (cant <= 0 || cant > producto.Productos[ValidarProducto(producto, codigo)].Cantidad);
+
+                    producto.Productos[ValidarProducto(producto, codigo)].Cantidad -= cant;
+
+                    detalleFactura.Cantidad = cant;
+                    detalleFactura.Valor = producto.Productos[ValidarProducto(producto, codigo)].Precio * cant;
+                    valor += detalleFactura.Valor;
+
+                    detalleFacturas.Add(detalleFactura);
+                    n++;
+                }
+
+                encabezadoFactura.Valor = valor;
+                encabezadoFacturas.Add(encabezadoFactura);
             }
             else
             {
-                cliente.Add(documento);
-                GenerarVenta();
+                Console.WriteLine("El cliente no existe");
             }
-        }
 
 
-        public void GenerarVenta()
-        {
-            Console.Write("Ingrese la cantidad de productos a llevar: ");
-            int cantidad = int.Parse(Console.ReadLine()); 
+            var encabezado = RelacionFactura(cliente).ToList();
 
-            for(int i = 0; i < cantidad; i++)
+            foreach (var item in encabezado)
             {
-                Console.WriteLine("Ingrese el código del producto: ");
-                string codigo = Console.ReadLine();
-                do
-                {
-                    if (VerificarCodigo(codigo) >= 0)
-                    {
-                        //cliente.Add(codigo);
-                        break;
-                    }
-                    Console.WriteLine("Ingrese otra vez el código del producto: ");
-                     codigo = Console.ReadLine();
-                } while (VerificarCodigo(codigo) != -1);
+                Console.WriteLine($"IdFactura: {item.IdFactura} IdProducto: {item.Documento} Valor: {item.Valor}");
             }
 
+            var detalle = RelacionDetalle(producto).ToList();
+            string resultado = "";
+            foreach (var item in detalle)
+            {
+                resultado += $"IdFactura: {item.IdFactura} IdProducto: {item.IdProducto} Cantidad: {item.Cantidad} Valor: {item.Valor}\n";
 
+            }
+
+            Console.WriteLine(resultado);
         }
 
-        public void GenerarEF()
+
+
+        public int ValidarCliente(ClienteService cliente, long documento)
         {
-            string result = "";
-           
-        }
-
-        public void GenerarDF()
-        {
-            string result = "";
-            //foreach (var item in Codigo)
-            //{
-            //    if (item.Productos.Codigo == factura.Productos.Codigo)
-            //    {
-
-            //    }
-
-            //}
-        }
-
-        public int VerificarCodigo(string codigo)
-        {
-            int index = detalleFactura.IdProducto.Codigo.IndexOf(codigo);
+            int index = cliente.Clientes.FindIndex(cliente => cliente.Documento == documento);
             return index;
         }
 
-        public List<Cliente> BuscarCliente(int documento)
+        public int ValidarProducto(ProductoService producto, string codigo)
         {
-            var consulta = encabezadofactura.Clientes.Clientes.Where(cliente => cliente.Documento == documento).ToList();
-            return consulta;
+            int index = producto.Productos.FindIndex(producto => producto.Codigo == codigo);
+            return index;
         }
+
+        public List<EncabezadoDto> RelacionFactura(ClienteService cliente)
+        {
+            var factura = encabezadoFacturas.Join(
+                cliente.Clientes,
+                 encabezadoFactura => encabezadoFactura.Documento,
+                 cliente => cliente.Documento,
+                 (encabezadoFactura, cliente) => new EncabezadoDto
+                 {
+                     IdFactura = encabezadoFactura.NumeroFactura,
+                     Documento = cliente.Documento,
+                     Valor = encabezadoFactura.Valor
+                 }
+                ).ToList();
+            return factura;
+        }
+
+        public List<DetalleDto> RelacionDetalle(ProductoService producto)
+        {
+            var productos = producto.Productos.ToList();
+            var encabezados = encabezadoFacturas.ToList();
+            var detalle = (from detalles in detalleFacturas join encabezado in encabezados on detalles.IdFactura equals encabezado.NumeroFactura join product in productos on detalles.IdProducto equals product.Codigo select new DetalleDto { IdFactura = encabezado.NumeroFactura, IdProducto = product.Codigo, Cantidad = detalles.Cantidad, Valor = detalles.Valor }).ToList();
+            return detalle;
+        }
+
+        public string BuscarFactura(int numFactura)
+        {
+            string resultBuscar = "";
+            var buscar = detalleFacturas.Where(factura => factura.IdFactura == numFactura).ToList();
+
+            if (buscar.Count != 0)
+            {
+                foreach (var factura in buscar)
+                {
+                    resultBuscar += $"idFactura: {factura.IdFactura} idProducto: {factura.IdProducto} Cantidad: {factura.Cantidad} Valor: {factura.Valor}\n";
+                }
+            }
+            else
+            {
+                resultBuscar = "No se encontro la factura";
+            }
+
+            return resultBuscar;
+        }
+
+
+
     }
 }

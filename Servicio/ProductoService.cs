@@ -2,78 +2,76 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Modulo;
+using Modelo;
 namespace Servicio
 {
     public class ProductoService
     {
 
-         Producto producto = new Producto();
+        public List<Producto> Productos = new List<Producto>();
 
-        public void Crear()
+
+        public void Agregar(Producto producto)
         {
-            producto.Productos = new List<Producto>();
+            Productos.Add(producto);
+        }
 
-            Console.WriteLine("aqui se crea un producto");
-            Console.WriteLine("Ingrese el codigo del producto:  ");
-            producto.Codigo = Console.ReadLine();
+        public  int ValidarCodigo(string codigo)
+        {
+            int index = Productos.FindIndex(producto => producto.Codigo == codigo);
+            return index;
+        }
 
+        public string BuscarProducto(string codigo)
+        {
+            string resultBuscar = "";
+            var buscar = Productos.Where(producto => producto.Codigo == codigo).ToList();
 
-            if (Validar(producto.Codigo) != -1)
+            if (buscar.Count != 0)
             {
-                Console.WriteLine("El codigo del producto ya existe");
+                foreach (var producto in buscar)
+                {
+                    resultBuscar = $"Código: {producto.Codigo} \nNombre: {producto.Nombre} \nPrecio: {producto.Precio} \nCantidad: {producto.Cantidad}";
+                }
+
             }
             else
             {
-                Console.WriteLine("Ingrese el nombre del producto:  ");
-                producto.Nombre = Console.ReadLine();
-                Console.WriteLine("Ingrese el precio del producto:  ");
-                producto.Precio = double.Parse(Console.ReadLine());
-                Console.WriteLine("Ingrese la cantidad del producto:  ");
-                producto.Cantidad = int.Parse(Console.ReadLine());
-                producto.Productos.Add(producto);
+                resultBuscar = "El producto no existe";
             }
 
-        }
-        public int Validar(string codigo)
-        {
-            int consulta = producto.Productos.FindIndex(c => c.Codigo == codigo);
-            return consulta;
+            return resultBuscar;
+
         }
 
-        public void Editar(string codigo)
+        public void ModificarProducto(string codigo)
         {
-            int index = Validar(codigo);
+            int index = ValidarCodigo(codigo);
 
             if (index != -1)
             {
-                Console.WriteLine("aqui se crea un producto");
-                Console.WriteLine($"Modificar el codigo { producto.Productos[index].Codigo} del producto:  ");
+                Console.WriteLine($"Modificar el codigo {Productos[index].Codigo} del producto:  ");
                 string Codigo = Console.ReadLine();
-                Console.WriteLine($"Modificar el nombre { producto.Productos[index].Nombre} del producto:  ");
+                Console.WriteLine($"Modificar el nombre {Productos[index].Nombre} del producto:  ");
                 string Nombre = Console.ReadLine();
-                Console.WriteLine($"Modificar el precio { producto.Productos[index].Precio} del producto:  ");
+                Console.WriteLine($"Modificar el precio {Productos[index].Precio} del producto:  ");
                 double Precio = double.Parse(Console.ReadLine());
-                Console.WriteLine($"Modificar la cantidad { producto.Productos[index].Cantidad} del producto:  ");
+                Console.WriteLine($"Modificar la cantidad {Productos[index].Cantidad} del producto:  ");
                 int Cantidad = int.Parse(Console.ReadLine());
 
-                producto.Productos[index].Codigo = Codigo;
-                producto.Productos[index].Nombre = Nombre;
-                producto.Productos[index].Cantidad = Cantidad;
-                producto.Productos[index].Precio = Precio;
+                Productos[index].Codigo = Codigo;
+                Productos[index].Nombre = Nombre;
+                Productos[index].Cantidad = Cantidad;
+                Productos[index].Precio = Precio;
 
+                Console.WriteLine("Producto modificado");
             }
             else
             {
                 Console.WriteLine("El producto no existe");
             }
-
         }
 
-        public List<Producto> Buscar(string codigo)
-        {
-            var consulta = producto.Productos.Where(producto => producto.Codigo == codigo).ToList();
-            return consulta;
-        }
+
     }
 }

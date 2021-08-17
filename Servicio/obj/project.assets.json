@@ -2,28 +2,28 @@
   "version": 3,
   "targets": {
     ".NETCoreApp,Version=v3.1": {
-      "Modulo/1.0.0": {
+      "Modelo/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v3.1",
         "compile": {
-          "bin/placeholder/Modulo.dll": {}
+          "bin/placeholder/Modelo.dll": {}
         },
         "runtime": {
-          "bin/placeholder/Modulo.dll": {}
+          "bin/placeholder/Modelo.dll": {}
         }
       }
     }
   },
   "libraries": {
-    "Modulo/1.0.0": {
+    "Modelo/1.0.0": {
       "type": "project",
-      "path": "../Modulo/Modulo.csproj",
-      "msbuildProject": "../Modulo/Modulo.csproj"
+      "path": "../Modelo/Modelo.csproj",
+      "msbuildProject": "../Modelo/Modelo.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
-      "Modulo >= 1.0.0"
+      "Modelo >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -53,8 +53,8 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "C:\\Users\\DAVID\\source\\repos\\Taller_Poo\\Modulo\\Modulo.csproj": {
-              "projectPath": "C:\\Users\\DAVID\\source\\repos\\Taller_Poo\\Modulo\\Modulo.csproj"
+            "C:\\Users\\DAVID\\source\\repos\\Taller_Poo\\Modelo\\Modelo.csproj": {
+              "projectPath": "C:\\Users\\DAVID\\source\\repos\\Taller_Poo\\Modelo\\Modelo.csproj"
             }
           }
         }

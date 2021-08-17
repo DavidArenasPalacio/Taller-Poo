@@ -4,14 +4,14 @@
     "C:\\Users\\DAVID\\source\\repos\\Taller_Poo\\Servicio\\Servicio.csproj": {}
   },
   "projects": {
-    "C:\\Users\\DAVID\\source\\repos\\Taller_Poo\\Modulo\\Modulo.csproj": {
+    "C:\\Users\\DAVID\\source\\repos\\Taller_Poo\\Modelo\\Modelo.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\DAVID\\source\\repos\\Taller_Poo\\Modulo\\Modulo.csproj",
-        "projectName": "Modulo",
-        "projectPath": "C:\\Users\\DAVID\\source\\repos\\Taller_Poo\\Modulo\\Modulo.csproj",
+        "projectUniqueName": "C:\\Users\\DAVID\\source\\repos\\Taller_Poo\\Modelo\\Modelo.csproj",
+        "projectName": "Modelo",
+        "projectPath": "C:\\Users\\DAVID\\source\\repos\\Taller_Poo\\Modelo\\Modelo.csproj",
         "packagesPath": "C:\\Users\\DAVID\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\DAVID\\source\\repos\\Taller_Poo\\Modulo\\obj\\",
+        "outputPath": "C:\\Users\\DAVID\\source\\repos\\Taller_Poo\\Modelo\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\DAVID\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -82,8 +82,8 @@
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "C:\\Users\\DAVID\\source\\repos\\Taller_Poo\\Modulo\\Modulo.csproj": {
-                "projectPath": "C:\\Users\\DAVID\\source\\repos\\Taller_Poo\\Modulo\\Modulo.csproj"
+              "C:\\Users\\DAVID\\source\\repos\\Taller_Poo\\Modelo\\Modelo.csproj": {
+                "projectPath": "C:\\Users\\DAVID\\source\\repos\\Taller_Poo\\Modelo\\Modelo.csproj"
               }
             }
           }

@@ -1,76 +1,87 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Modulo;
+using Modelo;
 namespace Servicio
 {
     public class ClienteService
     {
-       
+        public List<Cliente> Clientes = new List<Cliente>();
 
-         Cliente clientes = new Cliente();
-        public void Crear()
+
+        public void Agregar(Cliente cliente)
         {
-
-            clientes.Clientes = new List<Cliente>();
-            Console.Write("Ingrese el documento del cliente:  ");
-            clientes.Documento = int.Parse(Console.ReadLine());
-
-            if (Validar(clientes.Documento) != -1)
-            {
-                Console.WriteLine("El cliente ya existe");
-            }
-            else
-            { 
-                Console.Write("Ingrese el nombre del cliente:  ");
-                clientes.Nombre = Console.ReadLine();
-                Console.Write("Ingrese la direccion del cliente:  ");
-                clientes.Direccion = Console.ReadLine();
-                Console.Write("Ingrese el telefono del cliente:  ");
-                clientes.Telefono = int.Parse(Console.ReadLine());
-                clientes.Clientes.Add(clientes);
-            }
-
+            Clientes.Add(cliente);
         }
-        public int Validar(int documento)
+
+        public int ValidarDocumento(long documento)
         {
-            int index = clientes.Clientes.FindIndex(c => c.Documento == documento);
+            int index = Clientes.FindIndex(cliente => cliente.Documento == documento);
             return index;
         }
 
-        public void Editar(int document)
+        public string BuscarCliente(long documento)
         {
-            int index = Validar(document);
+            string resultBuscar = "";
+            var buscar = Clientes.Where(cliente => cliente.Documento == documento).ToList();
+
+            if (buscar.Count != 0)
+            {
+                foreach (var cliente in buscar)
+                {
+                    resultBuscar = $"\nNombre: {cliente.Nombre} \nDocumento: {cliente.Documento} \nTeléfono: {cliente.Telefono} \nDirección: {cliente.Direccion}";
+                }
+
+            }
+            else
+            {
+                resultBuscar = "El cliente no existe";
+            }
+
+            return resultBuscar;
+
+        }
+
+        public void ModificarCliente(long documento)
+        {
+            int index = ValidarDocumento(documento);
 
             if (index != -1)
             {
-
-                Console.Write($"Modificar el documento {clientes.Clientes[index].Documento} del cliente:  ");
-                int documento = int.Parse(Console.ReadLine());
-                Console.Write($"Modificar el nombre {clientes.Clientes[index].Nombre} del cliente:  ");
+                Console.Write($"Modificar el nombre {Clientes[index].Nombre} del cliente:  ");
                 string nombre = Console.ReadLine();
-                Console.Write($"Modificar la dirección {clientes.Clientes[index].Direccion} del cliente:  ");
+                Console.Write($"Modificar la dirección {Clientes[index].Direccion} del producto:  ");
                 string direccion = Console.ReadLine();
-                Console.Write($"Modificar el teléfono {clientes.Clientes[index].Telefono} del cliente:  ");
+                Console.Write($"Modificar el teléfono {Clientes[index].Telefono} del cliente:  ");
                 int telefono = int.Parse(Console.ReadLine());
+                Console.Write($"Modificar el documento {Clientes[index].Documento} del cliente:  ");
+                int document = int.Parse(Console.ReadLine());
 
+                Clientes[index].Nombre = nombre;
+                Clientes[index].Direccion = direccion;
+                Clientes[index].Telefono = telefono;
+                Clientes[index].Documento = document;
 
-                clientes.Clientes[index].Documento = documento;
-                clientes.Clientes[index].Nombre = nombre;
-                clientes.Clientes[index].Telefono = telefono;
-                clientes.Clientes[index].Direccion = direccion;
+                Console.WriteLine("Cliente modificado");
             }
             else
             {
                 Console.WriteLine("El cliente no existe");
             }
-
         }
 
-        public List<Cliente> Buscar(int documento)
+        public void EliminarCliente(long documento)
         {
-            var consulta = clientes.Clientes.Where(cliente => cliente.Documento == documento).ToList();
-            return consulta;
+            int index = ValidarDocumento(documento);
+            if (index != -1)
+            {
+                Clientes.RemoveAt(index);
+                Console.WriteLine("Cliente eliminado");
+            }
+            else
+            {
+                Console.WriteLine("El cliente no existe");
+            }
         }
     }
 }

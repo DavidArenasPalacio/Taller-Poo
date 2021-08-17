@@ -1,34 +1,68 @@
-﻿using Modulo;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace Servicio
 {
     public class ReporteService
     {
-        Reporte reporte = new Reporte();
 
-        public string ListarClientes()
+        public string ListarClientes(ClienteService clientes)
         {
-            string resultado = "";
+            string resultClientes = "";
 
-            foreach (var clientes in reporte.Clientes.Clientes)
+            if (clientes.Clientes.Count != 0)
             {
-                resultado += "";
+                foreach (var cliente in clientes.Clientes)
+                {
+                    resultClientes += $"Nombre: {cliente.Nombre} Dirección: {cliente.Direccion} Teléfono: {cliente.Telefono} Documento: {cliente.Documento}\n";
+                }
             }
-            return resultado;
+            else
+            {
+                resultClientes = "No hay clientes";
+            }
+            return resultClientes;
         }
 
-        public string ListarProductos()
+        public string ListarProductos(ProductoService productos)
         {
-            string resultado = "";
+            string resultProductos = "";
 
-            foreach (var productos in reporte.Productos.Productos)
+            if (productos.Productos.Count != 0)
             {
-                resultado += "";
+                foreach (var producto in productos.Productos)
+                {
+                    resultProductos += $"Nombre: {producto.Nombre} Precio: {producto.Precio} Cantidad: {producto.Cantidad} Código: {producto.Codigo}\n";
+                }
             }
-            return resultado;
+            else
+            {
+                resultProductos = "No hay productos";
+            }
+            return resultProductos;
+        }
+
+
+        public string ListarFacturas(FacturaService factura, ClienteService cliente)
+        {
+            string resultProductos = "";
+
+            var encabezado = factura.RelacionFactura(cliente).ToList();
+
+            if (encabezado.Count != 0)
+            {
+                foreach (var facturas in encabezado)
+                {
+                    resultProductos += $"IdFactura: {facturas.IdFactura} IdProducto: {facturas.Documento} Valor: {facturas.Valor}\n";
+                }
+            }
+            else
+            {
+                resultProductos = "No hay productos";
+            }
+            return resultProductos;
         }
     }
 }

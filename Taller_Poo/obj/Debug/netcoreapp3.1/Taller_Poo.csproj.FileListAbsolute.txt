@@ -8,11 +8,11 @@ C:\Users\DAVID\source\repos\Taller_Poo\Taller_Poo\bin\Debug\netcoreapp3.1\Taller
 C:\Users\DAVID\source\repos\Taller_Poo\Taller_Poo\bin\Debug\netcoreapp3.1\Taller_Poo.runtimeconfig.dev.json
 C:\Users\DAVID\source\repos\Taller_Poo\Taller_Poo\bin\Debug\netcoreapp3.1\Taller_Poo.dll
 C:\Users\DAVID\source\repos\Taller_Poo\Taller_Poo\bin\Debug\netcoreapp3.1\Taller_Poo.pdb
-C:\Users\DAVID\source\repos\Taller_Poo\Taller_Poo\bin\Debug\netcoreapp3.1\Modulo.dll
-C:\Users\DAVID\source\repos\Taller_Poo\Taller_Poo\bin\Debug\netcoreapp3.1\Servicio.dll
-C:\Users\DAVID\source\repos\Taller_Poo\Taller_Poo\bin\Debug\netcoreapp3.1\Servicio.pdb
-C:\Users\DAVID\source\repos\Taller_Poo\Taller_Poo\bin\Debug\netcoreapp3.1\Modulo.pdb
-C:\Users\DAVID\source\repos\Taller_Poo\Taller_Poo\obj\Debug\netcoreapp3.1\Taller_Poo.csproj.CopyComplete
 C:\Users\DAVID\source\repos\Taller_Poo\Taller_Poo\obj\Debug\netcoreapp3.1\Taller_Poo.dll
 C:\Users\DAVID\source\repos\Taller_Poo\Taller_Poo\obj\Debug\netcoreapp3.1\Taller_Poo.pdb
 C:\Users\DAVID\source\repos\Taller_Poo\Taller_Poo\obj\Debug\netcoreapp3.1\Taller_Poo.genruntimeconfig.cache
+C:\Users\DAVID\source\repos\Taller_Poo\Taller_Poo\bin\Debug\netcoreapp3.1\Modelo.dll
+C:\Users\DAVID\source\repos\Taller_Poo\Taller_Poo\bin\Debug\netcoreapp3.1\Servicio.dll
+C:\Users\DAVID\source\repos\Taller_Poo\Taller_Poo\bin\Debug\netcoreapp3.1\Modelo.pdb
+C:\Users\DAVID\source\repos\Taller_Poo\Taller_Poo\bin\Debug\netcoreapp3.1\Servicio.pdb
+C:\Users\DAVID\source\repos\Taller_Poo\Taller_Poo\obj\Debug\netcoreapp3.1\Taller_Poo.csproj.CopyComplete

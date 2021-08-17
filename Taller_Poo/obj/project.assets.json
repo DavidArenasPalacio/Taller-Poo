@@ -2,21 +2,21 @@
   "version": 3,
   "targets": {
     ".NETCoreApp,Version=v3.1": {
-      "Modulo/1.0.0": {
+      "Modelo/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v3.1",
         "compile": {
-          "bin/placeholder/Modulo.dll": {}
+          "bin/placeholder/Modelo.dll": {}
         },
         "runtime": {
-          "bin/placeholder/Modulo.dll": {}
+          "bin/placeholder/Modelo.dll": {}
         }
       },
       "Servicio/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v3.1",
         "dependencies": {
-          "Modulo": "1.0.0"
+          "Modelo": "1.0.0"
         },
         "compile": {
           "bin/placeholder/Servicio.dll": {}
@@ -28,10 +28,10 @@
     }
   },
   "libraries": {
-    "Modulo/1.0.0": {
+    "Modelo/1.0.0": {
       "type": "project",
-      "path": "../Modulo/Modulo.csproj",
-      "msbuildProject": "../Modulo/Modulo.csproj"
+      "path": "../Modelo/Modelo.csproj",
+      "msbuildProject": "../Modelo/Modelo.csproj"
     },
     "Servicio/1.0.0": {
       "type": "project",
@@ -41,6 +41,7 @@
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
+      "Modelo >= 1.0.0",
       "Servicio >= 1.0.0"
     ]
   },
@@ -71,6 +72,9 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
+            "C:\\Users\\DAVID\\source\\repos\\Taller_Poo\\Modelo\\Modelo.csproj": {
+              "projectPath": "C:\\Users\\DAVID\\source\\repos\\Taller_Poo\\Modelo\\Modelo.csproj"
+            },
             "C:\\Users\\DAVID\\source\\repos\\Taller_Poo\\Servicio\\Servicio.csproj": {
               "projectPath": "C:\\Users\\DAVID\\source\\repos\\Taller_Poo\\Servicio\\Servicio.csproj"
             }
