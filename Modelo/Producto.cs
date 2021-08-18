@@ -6,6 +6,7 @@ namespace Modelo
 {
     public class Producto
     {
+        //Propidades  con sus metodos getter and setter
         public string Nombre { get; set; }
         public double Precio { get; set; }
         public int Cantidad { get; set; }

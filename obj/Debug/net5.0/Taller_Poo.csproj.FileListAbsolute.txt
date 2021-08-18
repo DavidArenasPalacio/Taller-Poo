@@ -1,0 +1,5 @@
+C:\Users\DAVID\source\repos\Taller_Poo\obj\Debug\net5.0\Taller_Poo.csproj.AssemblyReference.cache
+C:\Users\DAVID\source\repos\Taller_Poo\obj\Debug\net5.0\Taller_Poo.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\DAVID\source\repos\Taller_Poo\obj\Debug\net5.0\Taller_Poo.AssemblyInfoInputs.cache
+C:\Users\DAVID\source\repos\Taller_Poo\obj\Debug\net5.0\Taller_Poo.AssemblyInfo.cs
+C:\Users\DAVID\source\repos\Taller_Poo\obj\Debug\net5.0\Taller_Poo.csproj.CoreCompileInputs.cache
